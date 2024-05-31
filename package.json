@@ -1,0 +1,43 @@
+{
+  "name": "backend-repo",
+  "version": "1.0.0",
+  "description": "This repository is part of a full stack developer test for eBuddy PTE LTD.",
+  "main": "./lib/core/app.js",
+  "scripts": {
+    "start": "ts-node core/app.ts",
+    "start:local": "nodemon --exec ts-node core/app.ts",
+    "seed:user": "ts-node seed/user.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {"node": "16"},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HandanaWilliyantoro/backend-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HandanaWilliyantoro/backend-repo/issues"
+  },
+  "homepage": "https://github.com/HandanaWilliyantoro/backend-repo#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.1",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "firebase-functions": "^5.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "typescript": "^4.9.0",
+    "firebase-functions-test": "^3.1.0"
+  }
+}
