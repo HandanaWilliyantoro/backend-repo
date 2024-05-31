@@ -3,29 +3,6 @@
 
 This repository contains the backend code for a project built using Express.js and Firebase Functions. This backend serves as the server-side logic for handling various API requests and integrating with Firebase services.
 
-## Project Structure
-
-The project structure is as follows:
-
-```
-backend-repo/
-├── config/                 # Configuration files
-│   └── firebaseConfig.ts
-├── controller/             # Controller logic for handling API endpoints
-│   └── api.ts
-├── core/                   # Core application logic
-│   └── app.ts
-├── entities/               # Entity definitions
-│   └── ApiError.ts
-├── middleware/             # Middleware functions
-│   └── authMiddleware.ts
-├── repository/             # Repository layer for interacting with data
-│   └── userCollection.ts
-├── routes/                 # Route definitions
-│   └── userRoutes.ts
-└── package.json            # Project metadata and dependencies
-```
-
 ## Getting Started
 
 To get started with this project, follow these steps:

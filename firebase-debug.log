@@ -915,3 +915,56 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 
 [debug] [2024-05-31T13:57:21.875Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-05-31T13:58:10.989Z] File C:\Users\handa\Documents\test\backend-repo\README.md changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\handa\\Documents\\test\\backend-repo\\README.md changed, reloading triggers"}}
+[debug] [2024-05-31T13:58:12.004Z] Validating nodejs source
+[debug] [2024-05-31T13:58:13.670Z] > [functions] package.json contents: {
+  "name": "backend-repo",
+  "version": "1.0.0",
+  "description": "This repository is part of a full stack developer test for eBuddy PTE LTD.",
+  "main": "./lib/core/app.js",
+  "scripts": {
+    "start": "ts-node core/app.ts",
+    "start:local": "nodemon --exec ts-node core/app.ts",
+    "seed:user": "ts-node seed/user.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HandanaWilliyantoro/backend-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HandanaWilliyantoro/backend-repo/issues"
+  },
+  "homepage": "https://github.com/HandanaWilliyantoro/backend-repo#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.1",
+    "firebase-functions": "^5.0.0",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^4.9.0"
+  }
+}
+[debug] [2024-05-31T13:58:13.671Z] Building nodejs source
+[debug] [2024-05-31T13:58:13.671Z] Analyzing nodejs backend spec
+[debug] [2024-05-31T13:58:13.671Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-31T13:58:13.963Z] Serving at port 9005
+
+[debug] [2024-05-31T13:58:14.144Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
