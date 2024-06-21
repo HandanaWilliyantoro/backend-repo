@@ -4,9 +4,6 @@
   "description": "This repository is part of a full stack developer test for eBuddy PTE LTD.",
   "main": "./lib/core/app.js",
   "scripts": {
-    "start": "ts-node core/app.ts",
-    "start:local": "nodemon --exec ts-node core/app.ts",
-    "seed:user": "ts-node seed/user.ts",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions",
@@ -33,7 +30,6 @@
     "express": "^4.19.2",
     "firebase-admin": "^12.1.1",
     "firebase-functions": "^5.0.0",
-    "nodemon": "^3.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
