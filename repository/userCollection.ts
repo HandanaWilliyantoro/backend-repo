@@ -9,8 +9,7 @@ const update = async (id: string, data: User) => {
 const retrieve = async (id: string) => {
   if(id){
     const userDoc = await db.collection('USERS').doc(id).get();
-    const customToken = await admin.auth().createCustomToken(id);
-    return userDoc.exists ? {user: userDoc.data(), access_token: customToken} : null;
+    return userDoc.exists ? {user: userDoc.data()} : null;
   } else {
     const usersCollection = db.collection('USERS');
     const snapshot = await usersCollection.get();
@@ -24,4 +23,15 @@ const retrieve = async (id: string) => {
   }
 };
 
-export { update, retrieve };
+const claim = async (idToken?: string) => {
+  if(idToken){
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    const uid = decodedToken.uid;
+    const userDoc = await db.collection('USERS').doc(uid).get();
+    const user = userDoc.exists ? userDoc.data() : null
+    const claim = user ? await admin.auth().setCustomUserClaims(uid, { role: user.role}) : undefined;
+    return claim
+  }
+}
+
+export { update, retrieve, claim };

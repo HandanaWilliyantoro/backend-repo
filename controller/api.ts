@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ApiError from '../entities/ApiError';
 import {User} from '../domain/user'
-import {update, retrieve} from '../repository/userCollection';
+import {update, retrieve, claim} from '../repository/userCollection';
 
 export const updateUsers = async (req: Request, res: Response) => {
   try {
@@ -24,6 +24,20 @@ export const getUsers = async (req: Request, res: Response) => {
       res.status(200).json({data: userDoc, text: 'get user successful', statusCode: 200});
     }
   } catch (error) {
+    res.status(500).json(new ApiError(500, (error as Error).message));
+  }
+};
+
+export const claimToken = async (req: Request, res: Response) => {
+  const idToken = req.headers.authorization?.split('Bearer ')[1];
+  if (!idToken) {
+      res.status(401).json(new ApiError(401, 'Access token not found'));
+  }
+  try {
+    const claimedToken = await claim(idToken);
+    res.status(200).json({data: claimedToken, text: 'get claimed token successful', statusCode: 200});
+  } catch (error) {
+    console.error('Error setting custom claims:', error);
     res.status(500).json(new ApiError(500, (error as Error).message));
   }
 };

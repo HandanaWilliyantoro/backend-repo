@@ -1,4 +1,6 @@
+import dotenv from 'dotenv';
 import * as admin from 'firebase-admin'
+dotenv.config();
 
 // Define your Firebase configuration as a ServiceAccount object
 const serviceAccount: admin.ServiceAccount = {

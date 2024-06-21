@@ -1,0 +1,6 @@
+{
+    "watch": ["core/app.ts"],
+    "ext": "ts",
+    "exec": "ts-node ./core/app.ts"
+  }
+  
